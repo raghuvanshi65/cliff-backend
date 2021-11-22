@@ -1,13 +1,10 @@
 package com.cliff.cliffbackend1.mapper;
 
-import com.cliff.cliffbackend1.dto.JobModel;
 import com.cliff.cliffbackend1.dto.PolicyModel;
 import com.cliff.cliffbackend1.entity.Job;
 import com.cliff.cliffbackend1.entity.Policy;
-import org.modelmapper.ModelMapper;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 

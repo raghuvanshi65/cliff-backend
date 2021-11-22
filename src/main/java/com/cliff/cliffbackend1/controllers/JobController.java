@@ -1,8 +1,6 @@
 package com.cliff.cliffbackend1.controllers;
 
 import com.cliff.cliffbackend1.dto.JobModel;
-import com.cliff.cliffbackend1.dto.JobModel;
-import com.cliff.cliffbackend1.dto.PolicyModel;
 import com.cliff.cliffbackend1.dto.ResponseModel;
 import com.cliff.cliffbackend1.exceptions.CustomException;
 import com.cliff.cliffbackend1.exceptions.ResourceAlreadyExistsException;

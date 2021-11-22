@@ -34,6 +34,7 @@ public class PolicyService {
 
     @Autowired
     private PolicyRepository policyRepository;
+    @Autowired
     private JobRepository jobRepository;
 
     /**

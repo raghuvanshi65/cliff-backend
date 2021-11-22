@@ -1,8 +1,6 @@
 package com.cliff.cliffbackend1.controllers;
 
-import com.cliff.cliffbackend1.dto.JobModel;
 import com.cliff.cliffbackend1.dto.PolicyModel;
-import com.cliff.cliffbackend1.entity.Policy;
 import com.cliff.cliffbackend1.exceptions.CustomException;
 import com.cliff.cliffbackend1.exceptions.ResourceAlreadyExistsException;
 import com.cliff.cliffbackend1.service.PolicyService;
@@ -10,7 +8,6 @@ import com.cliff.cliffbackend1.dto.ResponseModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
