@@ -19,8 +19,12 @@ This Repository contains a Basic Springboot Application, that exposes some Restf
 
 
 ### Environment Setup -
-- Java SE Development Kit 11.0.12 - https://www.oracle.com/in/java/technologies/javase/jdk11-archive-downloads.html
-- Apache Maven 3.8.4 - https://maven.apache.org/download.cgi
-- MySQL 8.0.27 - https://dev.mysql.com/downloads/installer/
+- [Java SE Development Kit 11.0.12](https://www.oracle.com/in/java/technologies/javase/jdk11-archive-downloads.html)
+- [Apache Maven 3.8.4](https://maven.apache.org/download.cgi)
+- [MySQL 8.0.27](https://dev.mysql.com/downloads/installer/)
+
+### Steps to boot the application -
+
+1. Once the Environment setup is complete, you can check the installation of all three with the below commands
 
 
