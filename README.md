@@ -1,5 +1,5 @@
 # cliff-backend
-This Repository contains a Basic Springboot Application, that exposes some Restful WebServices to perform CRUD operations on a MySQL database, with those endpoints we can perform below listed operations, 
+This Repository contains a Basic Springboot Application, that exposes some Restful WebServices to perform CRUD operations on a MySQL database, with those endpoints we can perform below listed operations, the schema has 2 Entities Policy and Job with a one to many relationship between them.
 
 ##### Operations on Policy Entity - 
 - Create a new Policy
