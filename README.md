@@ -31,6 +31,30 @@ java -version
 mvn -version
 mysql -V
 ```
+2. Clone the repository, to the get the codebase in your local machine.
+3. Run the following commands on your MySQL server.
+```
+CREATE DATABASE policydata;
+USE policydata;
+
+CREATE TABLE policy(id VARCHAR(100) , policy_name VARCHAR(100) , defination VARCHAR(300) ,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP() , updated_at TIMESTAMP , policy_status BIT , PRIMARY KEY(id));
+
+CREATE TABLE jobs(id VARCHAR(100) , policy_id VARCHAR(100) , job_name VARCHAR(100) ,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP() ,
+updated_at TIMESTAMP , CONSTRAINT fk_policy_jobs FOREIGN KEY(policy_id) REFERENCES policy(id) ON DELETE CASCADE);
+```
+4. Once the database policyData database is created and database schema is been established.
+5. Open the terminal locate to the parent directory of this project, and run the below command, to import all the dependencies in your machine and to create the .jar file file for your springboot application.
+```
+mvn clean install
+```
+6. Once the process is completed, locate the jar file inside the target folder and get its absolute path.
+7. Run the below command to start your springboot application, to be kept up and running on the embedded tomcat server.
+```
+java –jar <JARFILE_ABSOLUTE_PATH> 
+```
+8. The tomcat server will host the application on http://localhost:8080, below is the snapshots of testing the endpoints on postman,
+9. The user can see the reference documentation as OpenAPI docs, by accessing http://localhost:8080/swagger-ui.html
 
 
 
