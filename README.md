@@ -19,11 +19,13 @@ This Repository contains a Basic Springboot Application, that exposes some Restf
 
 
 ### Environment Setup -
+---------------------------------------------------------------------
 - [Java SE Development Kit 11.0.12](https://www.oracle.com/in/java/technologies/javase/jdk11-archive-downloads.html)
 - [Apache Maven 3.8.4](https://maven.apache.org/download.cgi)
 - [MySQL 8.0.27](https://dev.mysql.com/downloads/installer/)
 
 ### Steps to boot the application -
+----------------------------------------------------------------------
 
 1. Once the Environment setup is complete, you can check the installation of all three tools by running the below mentioned commands in your terminal that is running as an administrator, Once these commands show you the version number of the tools, proceed to the next step.
 ```
@@ -66,10 +68,10 @@ java –jar <JARFILE_ABSOLUTE_PATH>
 ---------------------------------------------------------------------
 
 - **URL**
-/policy/add
+`/policy/add`
 
 - **Method**
-POST
+`POST`
 
 - **URL Params**
 None
@@ -110,6 +112,60 @@ Code - 400 (BAD REQUEST)
 - **Postman test**
 
 ![addPolicy](https://user-images.githubusercontent.com/59005831/142992516-821f1d59-965b-4fd7-8132-82ba936fa4a9.PNG)
+
+
+### Read an existing Policy
+---------------------------------------------------------------------
+
+- **URL**
+`/policy/get/:id`
+
+- **Method**
+`GET`
+
+- **URL Params**
+`id(String)`
+
+- **Data Params**
+None
+
+- **Success Response**
+Code - 200 (OK)
+```
+{
+    "result": "success",
+    "message": "policy retrieved successfully",
+    "data": {
+        "id": "4028b8817d4b99f2017d4bf0961f0001",
+        "name": "Policy 12",
+        "defination": "This is Policy 12",
+        "createdAt": "2021-11-23T08:36:38.047+00:00",
+        "updatedAt": "2021-11-23T08:36:38.047+00:00",
+        "status": true,
+        "jobsList": [
+            "4028b8817d4b99f2017d4bf4f1c40002",
+            "4028b8817d4b99f2017d4bf504eb0003",
+            "4028b8817d4b99f2017d4bf5131b0004"
+        ]
+    }
+}
+```
+
+- **Error Response**
+Code - 404 (NOT FOUND)
+```
+{
+    "result": "failed",
+    "message": "Exception: The Entity with :id does not exists - with the status Code: 404",
+    "data": "error occurred"
+}
+```
+
+- **Postman test**
+
+![getPolicy](https://user-images.githubusercontent.com/59005831/142993451-b4402b6b-1293-46ed-8e1b-b62e6496d486.PNG)
+
+
 
 
 
