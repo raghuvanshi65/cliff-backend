@@ -300,7 +300,7 @@ Code - 404 (NOT FOUND)
 None
 
 - **Query Params**
-`jobId(Integer) (Required)`
+`jobId(String) (Required)`
 
 - **Success Response**
 Code - 200 (OK)
@@ -342,13 +342,13 @@ Code - 404 (NOT FOUND)
 ---------------------------------------------------------------------
 
 - **URL**
-`/policy/delete?:id`
+`/policy/delete/:id`
 
 - **Method**
 `DELETE`
 
 - **URL Params**
-`id(Integer) (Required)`
+`id(String) (Required)`
 
 - **Query Params**
 None
@@ -376,6 +376,302 @@ Code - 404 (NOT FOUND)
 - **Postman test**
 
 ![deletePolicy](https://user-images.githubusercontent.com/59005831/142998191-df0ee576-344b-4927-a369-4b5a9f4cb839.PNG)
+
+
+### Add a new Job
+---------------------------------------------------------------------
+
+- **URL**
+`/job/add`
+
+- **Method**
+`POST`
+
+- **URL Params**
+None
+
+- **Query Params**
+None
+
+- **Success Response**
+Code - 200 (OK)
+```
+{
+    "result": "success",
+    "message": "policy is successfully added",
+    "data": {
+        "id": "4028b8817d4b99f2017d4bf5131b0004",
+        "jobName": "job 4",
+        "createdAt": "2021-11-23T08:41:32.186+00:00",
+        "updatedAt": "2021-11-23T08:41:32.186+00:00",
+        "policyId": "4028b8817d4b99f2017d4bf0961f0001"
+    }
+}
+```
+
+- **Error Response**
+Code - 500 (Internal Server Error)
+```
+{
+    "result": "failed",
+    "message": "could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement",
+    "data": "error occurred"
+}
+```
+
+- **Postman test**
+
+![addJob](https://user-images.githubusercontent.com/59005831/142998828-5aa39365-9508-4657-834e-56aa6769ba85.PNG)
+
+
+### Read an existing Job
+---------------------------------------------------------------------
+
+- **URL**
+`/job/get/:id`
+
+- **Method**
+`GET`
+
+- **URL Params**
+`id(String) (Required)`
+
+- **Query Params**
+None
+
+- **Success Response**
+Code - 200 (OK)
+```
+{
+    "result": "success",
+    "message": "policy is successfully added",
+    "data": {
+        "id": "4028b8817d4b99f2017d4bf5131b0004",
+        "jobName": "job 4",
+        "createdAt": "2021-11-23T08:41:32.186+00:00",
+        "updatedAt": "2021-11-23T08:41:32.186+00:00",
+        "policyId": "4028b8817d4b99f2017d4bf0961f0001"
+    }
+}
+```
+
+- **Error Response**
+Code - 404 (NOT FOUND)
+```
+{
+    "result": "failed",
+    "message": "Exception: The Entity with :id does not exists - with the status Code: 404",
+    "data": "error occurred"
+}
+```
+
+- **Postman test**
+
+![getJOb](https://user-images.githubusercontent.com/59005831/142999097-69be57e3-8a1f-4056-81b0-7d260e6ff5fa.PNG)
+
+
+### Update an existing Job
+---------------------------------------------------------------------
+
+- **URL**
+`/job/update/:id`
+
+- **Method**
+`PUT`
+
+- **URL Params**
+`id(String) (Required)`
+
+- **Query Params**
+None
+
+- **Success Response**
+Code - 200 (OK)
+```
+{
+    "result": "success",
+    "message": "job updated successfully",
+    "data": {
+        "id": "4028b8817d4b99f2017d4bf504eb0003",
+        "jobName": "job 3 Updated",
+        "createdAt": "2021-11-23T08:41:28.554+00:00",
+        "updatedAt": "2021-11-23T09:25:05.687+00:00",
+        "policyId": "4028b8817d4b99f2017d4bf0961f0001"
+    }
+}
+```
+
+- **Error Response**
+Code - 404 (NOT FOUND)
+```
+{
+    "result": "failed",
+    "message": "Exception: The Entity with :id does not exists - with the status Code: 404",
+    "data": "error occurred"
+}
+```
+
+**OR**
+
+Code - 400 (BAD REQUEST)
+```
+{
+    "result": "failed",
+    "message": "Exception: Path Variable id and request body id not matching - with the status Code: 400",
+    "data": "error occurred"
+}
+```
+
+- **Postman test**
+
+![updateJob](https://user-images.githubusercontent.com/59005831/142999504-f039ab61-a8e0-4dbd-b855-07b700c966df.PNG)
+
+
+### Get jobs with Pagination
+---------------------------------------------------------------------
+
+- **URL**
+`/job/list?pageNumber=&pageSize=`
+
+- **Method**
+`GET`
+
+- **URL Params**
+`id(String) (Required)`
+
+- **Query Params**
+None
+
+- **Success Response**
+Code - 200 (OK)
+```
+{
+    "result": "success",
+    "message": "policies retrieved successfully",
+    "data": [
+        {
+            "id": "4028b8817d4b99f2017d4c1947d00006",
+            "jobName": "job 2",
+            "createdAt": "2021-11-23T09:21:04.976+00:00",
+            "updatedAt": "2021-11-23T09:21:04.976+00:00",
+            "policyId": "4028b8817d4b99f2017d4bf0961f0001"
+        }
+    ]
+}
+```
+
+- **Error Response**
+Code - 404 (NOT FOUND)
+```
+{
+    "result": "failed",
+    "message": "Exception: No Entity exists - with the status Code: 404",
+    "data": "error occurred"
+}
+```
+
+- **Postman test**
+
+![pageJob](https://user-images.githubusercontent.com/59005831/142999979-6825974d-2e5a-4648-9fdd-247ce9c78059.PNG)
+
+
+### Get jobs with PolicyId
+---------------------------------------------------------------------
+
+- **URL**
+`/job/by/:id`
+
+- **Method**
+`GET`
+
+- **URL Params**
+None
+
+- **Query Params**
+None
+
+- **Success Response**
+Code - 200 (OK)
+```
+{
+    "result": "success",
+    "message": "jobs retrieved successfully",
+    "data": [
+        {
+            "id": "4028b8817d4b99f2017d4bf4f1c40002",
+            "jobName": "job 2",
+            "createdAt": "2021-11-23T08:41:23.647+00:00",
+            "updatedAt": "2021-11-23T08:41:23.647+00:00",
+            "policyId": "4028b8817d4b99f2017d4bf0961f0001"
+        },
+        {
+            "id": "4028b8817d4b99f2017d4bf504eb0003",
+            "jobName": "job 3 Updated",
+            "createdAt": "2021-11-23T08:41:28.554+00:00",
+            "updatedAt": "2021-11-23T09:25:05.687+00:00",
+            "policyId": "4028b8817d4b99f2017d4bf0961f0001"
+        }
+    ]
+}
+```
+
+- **Error Response**
+Code - 404 (NOT FOUND)
+```
+{
+    "result": "failed",
+    "message": "Exception: No Entity exists - with the status Code: 404",
+    "data": "error occurred"
+}
+```
+
+- **Postman test**
+
+![getJObBYPolicy](https://user-images.githubusercontent.com/59005831/143000306-2bd2f40f-49d9-466a-989f-c60b5783ad0f.PNG)
+
+
+### Delete Job
+---------------------------------------------------------------------
+
+- **URL**
+`/policy/delete/:id`
+
+- **Method**
+`DELETE`
+
+- **URL Params**
+`id(String) (Required)`
+
+- **Query Params**
+None
+
+- **Success Response**
+Code - 200 (OK)
+```
+{
+    "result": "success",
+    "message": "Job deleted successfully",
+    "data": null
+}
+```
+
+- **Error Response**
+Code - 404 (NOT FOUND)
+```
+{
+    "result": "failed",
+    "message": "Exception: No Entity exists - with the status Code: 404",
+    "data": "error occurred"
+}
+```
+
+- **Postman test**
+
+![deleteJob](https://user-images.githubusercontent.com/59005831/143000487-21761d5b-fb59-4803-bd80-335898eac08a.PNG)
+
+
+
+
 
 
 
