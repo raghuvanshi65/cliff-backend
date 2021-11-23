@@ -62,8 +62,55 @@ java –jar <JARFILE_ABSOLUTE_PATH>
 
 ![end](https://user-images.githubusercontent.com/59005831/142983514-7fd05b0a-3091-4cd4-a8a0-ed8f8ac8c7d8.PNG)
 
-#### Add a new Job
+### Add a new Policy
 ---------------------------------------------------------------------
+
+- **URL**
+/policy/add
+
+- **Method**
+POST
+
+- **URL Params**
+None
+
+- **Data Params**
+None
+
+- **Success Response**
+Code - 200 (OK)
+```
+{
+    "result": "success",
+    "message": "policy is successfully added",
+    "data": {
+        "id": "4028b8817d4b99f2017d4bedecf80000",
+        "name": "Policy 12",
+        "defination": "This is Policy 12",
+        "createdAt": "2021-11-23T08:33:43.668+00:00",
+        "updatedAt": "2021-11-23T08:33:43.668+00:00",
+        "status": true,
+        "jobsList": []
+    }
+}
+```
+
+- **Error Response**
+Code - 400 (BAD REQUEST)
+```
+{
+    "result": "failed",
+    "message": "Arguments not sent properly",
+    "data": [
+        "name: must not be empty"
+    ]
+}
+```
+
+- **Postman test**
+
+![addPolicy](https://user-images.githubusercontent.com/59005831/142992516-821f1d59-965b-4fd7-8132-82ba936fa4a9.PNG)
+
 
 
 
