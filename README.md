@@ -287,6 +287,98 @@ Code - 404 (NOT FOUND)
 ![pagePolicy](https://user-images.githubusercontent.com/59005831/142995114-18c934a4-07e7-42d3-87c7-6d61786f4ab3.PNG)
 
 
+### Get Policy with child job
+---------------------------------------------------------------------
+
+- **URL**
+`/policy/by?jobId=`
+
+- **Method**
+`GET`
+
+- **URL Params**
+None
+
+- **Query Params**
+`jobId(Integer) (Required)`
+
+- **Success Response**
+Code - 200 (OK)
+```
+{
+    "result": "success",
+    "message": "policies retrieved successfully",
+    "data": {
+        "id": "4028b8817d4b99f2017d4bf0961f0001",
+        "name": "Policy 12",
+        "defination": "This is Policy 12",
+        "createdAt": "2021-11-23T08:51:33.785+00:00",
+        "updatedAt": "2021-11-23T08:51:33.788+00:00",
+        "status": false,
+        "jobsList": [
+            "4028b8817d4b99f2017d4bf4f1c40002",
+            "4028b8817d4b99f2017d4bf504eb0003"
+        ]
+    }
+}
+```
+
+- **Error Response**
+Code - 404 (NOT FOUND)
+```
+{
+    "result": "failed",
+    "message": "Exception: No Entity exists - with the status Code: 404",
+    "data": "error occurred"
+}
+```
+
+- **Postman test**
+
+![getByJob](https://user-images.githubusercontent.com/59005831/142997944-6ac6e393-3243-4441-ac7a-a5a6cfe852fa.PNG)
+
+
+### Delete Policy
+---------------------------------------------------------------------
+
+- **URL**
+`/policy/delete?:id`
+
+- **Method**
+`DELETE`
+
+- **URL Params**
+`id(Integer) (Required)`
+
+- **Query Params**
+None
+
+- **Success Response**
+Code - 200 (OK)
+```
+{
+    "result": "success",
+    "message": "policy deleted successfully",
+    "data": null
+}
+```
+
+- **Error Response**
+Code - 404 (NOT FOUND)
+```
+{
+    "result": "failed",
+    "message": "Exception: No Entity exists - with the status Code: 404",
+    "data": "error occurred"
+}
+```
+
+- **Postman test**
+
+![deletePolicy](https://user-images.githubusercontent.com/59005831/142998191-df0ee576-344b-4927-a369-4b5a9f4cb839.PNG)
+
+
+
 
 
 
