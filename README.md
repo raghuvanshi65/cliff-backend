@@ -25,6 +25,12 @@ This Repository contains a Basic Springboot Application, that exposes some Restf
 
 ### Steps to boot the application -
 
-1. Once the Environment setup is complete, you can check the installation of all three with the below commands
+1. Once the Environment setup is complete, you can check the installation of all three tools by running the below mentioned commands in your terminal that is running as an administrator, Once these commands show you the version number of the tools, proceed to the next step.
+```
+java -version
+mvn -version
+mysql -V
+```
+
 
 
