@@ -59,6 +59,8 @@ java –jar <JARFILE_ABSOLUTE_PATH>
 
 ### Testing the endpoints on Postman -
 - Below is the list of all endpoints present.
+![end](https://user-images.githubusercontent.com/59005831/142983514-7fd05b0a-3091-4cd4-a8a0-ed8f8ac8c7d8.PNG)
 
-![Endpoints](https://user-images.githubusercontent.com/59005831/142982412-0399776d-96dc-44fd-808e-30cc634bbdf4.jpg)
+-
+
 
