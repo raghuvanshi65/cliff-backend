@@ -76,7 +76,7 @@ java –jar <JARFILE_ABSOLUTE_PATH>
 - **URL Params**
 None
 
-- **Data Params**
+- **Query Params**
 None
 
 - **Success Response**
@@ -126,7 +126,7 @@ Code - 400 (BAD REQUEST)
 - **URL Params**
 `id(String)`
 
-- **Data Params**
+- **Query Params**
 None
 
 - **Success Response**
@@ -164,6 +164,127 @@ Code - 404 (NOT FOUND)
 - **Postman test**
 
 ![getPolicy](https://user-images.githubusercontent.com/59005831/142993451-b4402b6b-1293-46ed-8e1b-b62e6496d486.PNG)
+
+### Update an existing Policy
+---------------------------------------------------------------------
+
+- **URL**
+`/policy/update/:id`
+
+- **Method**
+`PUT`
+
+- **URL Params**
+`id(String)`
+
+- **Query Params**
+None
+
+- **Success Response**
+Code - 200 (OK)
+```
+{
+    "result": "success",
+    "message": "policy retrieved successfully",
+    "data": {
+        "id": "4028b8817d4b99f2017d4bf0961f0001",
+        "name": "Policy 12",
+        "defination": "This is Policy 12",
+        "createdAt": "2021-11-23T08:36:38.047+00:00",
+        "updatedAt": "2021-11-23T08:36:38.047+00:00",
+        "status": true,
+        "jobsList": [
+            "4028b8817d4b99f2017d4bf4f1c40002",
+            "4028b8817d4b99f2017d4bf504eb0003",
+            "4028b8817d4b99f2017d4bf5131b0004"
+        ]
+    }
+}
+```
+
+- **Error Response**
+Code - 404 (NOT FOUND)
+```
+{
+    "result": "failed",
+    "message": "Exception: The Entity with :id does not exists - with the status Code: 404",
+    "data": "error occurred"
+}
+```
+**OR**
+
+Code - 400 (BAD REQUEST)
+```
+{
+    "result": "failed",
+    "message": "Exception: Path Variable id and request body id not matching - with the status Code: 400",
+    "data": "error occurred"
+}
+```
+
+- **Postman test**
+
+![updatePolicy](https://user-images.githubusercontent.com/59005831/142994656-7355b1f8-ef67-49ee-91cb-90b5952821c7.PNG)
+
+
+### Get Policies with pagination
+---------------------------------------------------------------------
+
+- **URL**
+`/policy/list?pageNumber=&pageSize=`
+
+- **Method**
+`GET`
+
+- **URL Params**
+None
+
+- **Query Params**
+`pageNumber(Integer) (Required)`
+`pageSize(Integer) (Required)`
+
+- **Success Response**
+Code - 200 (OK)
+```
+{
+    "result": "success",
+    "message": "policies retrieved successfully",
+    "data": [
+        {
+            "id": "4028b8817d2db975017d2db9a05f0001",
+            "name": "Policy 5",
+            "defination": null,
+            "createdAt": "2021-11-17T11:47:59.710+00:00",
+            "updatedAt": "2021-11-17T11:47:59.710+00:00",
+            "status": true,
+            "jobsList": []
+        },
+        {
+            "id": "4028b8817d2db975017d2db9b11d0002",
+            "name": "Policy 5",
+            "defination": null,
+            "createdAt": "2021-11-17T11:48:03.996+00:00",
+            "updatedAt": "2021-11-17T11:48:03.996+00:00",
+            "status": true,
+            "jobsList": []
+        }
+    ]
+}
+```
+
+- **Error Response**
+Code - 404 (NOT FOUND)
+```
+{
+    "result": "failed",
+    "message": "Exception: No Entity exists - with the status Code: 404",
+    "data": "error occurred"
+}
+```
+
+- **Postman test**
+
+![pagePolicy](https://user-images.githubusercontent.com/59005831/142995114-18c934a4-07e7-42d3-87c7-6d61786f4ab3.PNG)
 
 
 
